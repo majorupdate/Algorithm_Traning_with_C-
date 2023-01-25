@@ -11,36 +11,25 @@ int add(int i)
         sum += i % 10;
         i /= 10;
     }
-        
+
     return sum;
 }
 
 int main()
-{   
-    int n; cin >> n;
-    int *arr = new int[n];
+{
+    int n;
+    cin >> n;
     int min = n;
-    
+
     for (int i = 1; i < n; i++)
     {
-        int temp = i;
-        while (temp <= n)
+        if ((i < min) && (add(i) == n))
         {
-            if(arr[temp] == 1)
-            {
-                break;
-            }
-            int temp_next = add(temp);
-            if (temp < min && temp_next == n)
-            {
-                min = temp;
-                break;
-            }
-            arr[temp] = 1;
-            temp = temp_next;
+            min = i;
+            break;
         }
     }
-    
+
     if (min == n)
     {
         cout << 0;
