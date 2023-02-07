@@ -57,7 +57,8 @@ int main()
         }
     }
     
-    dfs(0, n, 0);
+    check[0] = true;
+    dfs(1, n, 1);
     
     cout << ans;
 
